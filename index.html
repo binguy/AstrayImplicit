@@ -264,7 +264,12 @@
                         light.intensity = 0;
                         var level = Math.floor((mazeDimension-1)/2 - 4);
                         $('#level').html('Level ' + level);
-                        sum_emotions = [0, 0, 0, 0, 0, 0, 0]
+                        appendLog('Level ' + level + ', Avg. Emotions: ' + avg_emotions + ', Max Emotion: ' + max_emotion + ', Emotion: ' + index_max_emotion + ', count: ' + count + ', Sum Emotions: ' + sum_emotions);
+                        if (level>10){
+                            downloadButton.disabled = false;
+                        }
+                        count = 0;
+                        sum_emotions = [0, 0, 0, 0, 0, 0, 0];
                         gameState = 'fade in'
                         break;
                         
@@ -406,6 +411,9 @@
                 KeyboardJS.bind.axis('h', 'l', 'j', 'k', onMoveKey);
                 $(window).resize(onResize);
                 
+                downloadButton = document.getElementById('downloadButton');
+                downloadButton.addEventListener('click', downloadLogs);
+                downloadButton.disabled = true;
 
                 // Set the initial game state.
                 gameState = 'initialize';
@@ -470,7 +478,14 @@
                 display: inline;
                 border: 2px solid white;
             }
-
+            #downloadButton {
+                position: absolute;
+                left: 0;
+                top: 150px;
+                padding: 4px;
+                color: Black;
+            }
+            
         </style>
         
     </head>
@@ -504,7 +519,7 @@
     </div>
 
     <video id='video' width="720" height="460" autoplay muted></video>
-    
+    <button id="downloadButton" disabled>Download Logs</button>
     </body>
 
 </html>
