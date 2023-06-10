@@ -1,6 +1,6 @@
-# Astray
+# Astray Implicit
 
-A WebGL maze game built with Three.js and Box2dWeb. Play it here: http://wwwtyro.github.io/Astray/
+The research experiment x2 of WebGL maze game called Astray built with Three.js and Box2dWeb for my paper. You can checkout the original Astray here: http://wwwtyro.github.io/Astray/. You can play my version at https://mybingamer.github.io/Astrayimplicit
 
 ### Launching
 
